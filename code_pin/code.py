@@ -1,8 +1,8 @@
 import tkinter as tk
 from tkinter import messagebox
 
-# Code PIN correct
-Chaine2 = "6931"
+# Code PIN1
+Chaine2 = "0742"
 
 def saisie():
     """ Récupère le code saisi et lance la vérification """
@@ -10,7 +10,7 @@ def saisie():
     verifier4caractere(Chaine1)
 
 def comparer2chaine(chaine1, chaine2):
-    """ Compare le PIN saisi avec le PIN correct """
+    """ Compare le PIN saisi avec le PIN1 """
     if chaine1 == chaine2:
         messagebox.showinfo("Succès", "CORRECT")
     else:
@@ -22,7 +22,7 @@ def verifier4caractere(Chaine1):
     if len(Chaine1) == 4:
         caractèrenumerique(Chaine1)
     else:
-        messagebox.showerror("Erreur", "4 caractères SVP")
+        messagebox.showerror("Erreur", "Il n'y a pas 4 caracteres")
         entry_pin.delete(0, tk.END)
 
 def caractèrenumerique(Chaine1):
@@ -30,10 +30,10 @@ def caractèrenumerique(Chaine1):
     if Chaine1.isnumeric():
         comparer2chaine(Chaine1, Chaine2)
     else:
-        messagebox.showerror("Erreur", "Des chiffres SVP")
+        messagebox.showerror("Erreur", "Des chiffres ")
         entry_pin.delete(0, tk.END)
 
-# Création de l'interface
+# Création interface
 root = tk.Tk()
 root.title("Saisie du PIN")
 
@@ -45,9 +45,9 @@ label.pack(pady=5)
 entry_pin = tk.Entry(root, show="*", justify="center")
 entry_pin.pack(pady=5)
 
-# Bouton de validation
+# Bouton validation
 btn_valider = tk.Button(root, text="Valider", command=saisie)
 btn_valider.pack(pady=5)
 
-# Lancement de l'application
+# Lancement application
 root.mainloop()
